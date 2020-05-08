@@ -9,4 +9,8 @@ routes.get('/teachers', (req, res) => {
   res.render('teachers/index');
 });
 
+routes.get('/students', (req, res) => {
+  res.render('students/index')
+});
+
 module.exports = routes;
