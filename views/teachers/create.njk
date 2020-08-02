@@ -1,0 +1,68 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+   <form class="card" method="POST" action="/teachers">
+      <section class="avatar"></section>
+
+      <section class="details">
+         <h3>Novo Professor</h3>
+
+         <fieldset class="item">
+            <label>Avatar URL</label>
+            <div>
+               <input
+               type="url" 
+               name="avatar_url"
+               placeholder="https://"
+            >
+            </div>
+         </fieldset>
+
+         <fieldset class="item">
+            <label>Nome completo</label>
+            <div>
+               <input
+               type="text" 
+               name="name"
+               placeholder="Digite seu nome completo"
+            >
+            </div>
+         </fieldset>
+
+         <fieldset class="item">
+            <label>Data de Nascimento</label>
+            <div>
+               <input
+               type="date" 
+               name="birth-date"
+            >
+            </div>
+         </fieldset>
+
+         <fieldset class="item">
+            <label>Grau de escolaridade</label>
+            <div>
+               <select name="educational_level">
+                  <option value="" selected>Selecione uma opção</option>
+                  <option value="complete-high-school">Ensino médio completo</option>
+                  <option value="complete-college">Ensino superior completo</option>
+                  <option value="Master">Mestrado</option>
+                  <option value="Doctor">Doutorado</option>
+               </select>
+            </div>
+         </fieldset>
+
+         <fieldset class="item">
+            <label>Tipo de aula</label>
+            <div>
+               <span><input type="radio" name="class_type" value="Presential" checked> Presencial</span>
+               <span><input type="radio" name="class_type" value="Online"> À distância</span>
+            </div>
+         </fieldset>
+
+         <button type="submit">Salvar</button>
+      </section>
+   </form>
+
+{% endblock content %}
