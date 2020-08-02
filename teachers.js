@@ -10,7 +10,7 @@ exports.post = (req, res) => {
      }
    }
 
-   let { avatar_url, name,  birth, educational_level, class_type} = req.body;
+   let { avatar_url, name,  birth, educational_level, class_type, field} = req.body;
 
    birth = Date.parse(birth);
    const Id = Number(data.teachers.length + 1);
@@ -23,6 +23,7 @@ exports.post = (req, res) => {
       birth,
       educational_level,
       class_type,
+      field,
       created_at
    });
 
