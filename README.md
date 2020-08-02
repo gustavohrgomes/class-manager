@@ -84,3 +84,23 @@ Durante a estilização do desafio nós temos a liberdade de escolher como iremo
   - Utilize o seletor `nth-child()` para estilizar o label (ex.: Desde) e valor (ex.: 02/02/2020) do item.
   - Utilize o `keyframes` e o `animation` para fazer uma animação do card.
   - Utilize o `box-shadow` para aplicar uma sombra no card.
+
+
+<h3 align="center">
+  Desafio 4-3: Formulário e Rota de cadastro do Professor
+</h3>
+
+Nesse desafio, tivemos que criar um formulário para o cadastro de novo professores dentro da aplicação.
+
+#### Formulário
+
+O formulário em si é composto pelos campos:
+  
+  - Avatar URL
+  - Nome Completo
+  - Data de Nascimento
+  - Grau de Escolaridade
+  - Tipo de Aula
+  - Área de atuação
+
+Durante o desafio, foi criado um arquivo `teachers.js`para conter todos os métodos responsáveis pelos verbos http, ao invés de mantê-los no arquivo `routes.js`, facilitando na manutenção e deixando nosso código mais desacoplado.
