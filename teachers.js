@@ -1,5 +1,25 @@
 const fs = require('fs');
 const data = require('./data.json');
+const { age } = require('./utils');
+
+exports.show = (req, res) => {
+   const { id } = req.params;
+
+   const foundTeacher = data.teachers.find(teacher => {
+      return teacher.Id == id;
+   })
+
+   if(!foundTeacher) return res.send('Teacher not found!')
+
+   const teacher = {
+      ...foundTeacher,
+      age: age(foundTeacher.birth),
+      fields: foundTeacher.fields.split(','),
+      created_at: "",
+   }
+
+   return res.render('teachers/show', { teacher });
+}
 
 exports.post = (req, res) => {
    const keys = Object.keys(req.body);
@@ -10,7 +30,7 @@ exports.post = (req, res) => {
      }
    }
 
-   let { avatar_url, name,  birth, educational_level, class_type, field} = req.body;
+   let { avatar_url, name,  birth, educational_level, class_type, fields} = req.body;
 
    birth = Date.parse(birth);
    const Id = Number(data.teachers.length + 1);
@@ -23,7 +43,7 @@ exports.post = (req, res) => {
       birth,
       educational_level,
       class_type,
-      field,
+      fields,
       created_at
    });
 
