@@ -15,10 +15,12 @@ routes.get('/teachers/create', (req, res) => {
   return res.render('teachers/create');
 });
 
-routes.post('/teachers', teachers.post)
+routes.get('/teachers/:id', teachers.show);
+
+routes.post('/teachers', teachers.post);
 
 routes.get('/students', (req, res) => {
-  return res.render('students/index')
+  return res.render('students/index');
 });
 
 module.exports = routes;

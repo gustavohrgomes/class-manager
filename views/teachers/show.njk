@@ -1,0 +1,55 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+  <div class="card">
+    <section class="avatar" style="background: url({{ teacher.avatar_url }}}) no-repeat center center; background-size: cover"></section>
+
+    <div class="details">
+      <h3>Detalhes</h3>
+
+      <div class="item">
+        <div>Nome Completo</div>
+        <div>{{ teacher.name }}</div>
+      </div>
+
+      <div class="item">
+        <div>Idade</div>
+        <div>{{ teacher.age }}</div>
+      </div>
+
+      <div class="item">
+        <div>Grau de Escolaridade</div>
+        <div>
+          {% if teacher.educational_level == "complete-high-school" %}
+            Ensino médio completo
+          {% elif teacher.educational_level == "complete-college" %}
+            Ensino superior completo
+          {% elif teacher.educational_level == "Master" %}
+            Mestrado
+          {% else %}
+            Doutorado
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="item">
+        <div>Tipo de aula</div>
+        <div>{{ "Presencial" if teacher.class_type == "Presential" else "À distância" }}</div>
+      </div>
+
+      <div class="item">
+        <div>Áreas de atuação</div>
+        {% for field in teacher.fields %}
+          <span>{{ field }}</span>
+        {% endfor %}
+      </div>
+
+      <div class="item">
+        <div>Desde</div>
+        <div>{{ teacher.created_at }}</div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
