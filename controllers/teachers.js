@@ -15,8 +15,8 @@ exports.show = (req, res) => {
       ...foundTeacher,
       age: age(foundTeacher.birth),
       fields: foundTeacher.fields.split(','),
-      educational_level: graduation("Doctor"),
-      created_at: "",
+      educational_level: graduation(foundTeacher.educational_level),
+      created_at: new Intl.DateTimeFormat("pt-BR").format(foundTeacher.created_at)
    }
 
    console.log(teacher);
