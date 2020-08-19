@@ -1,5 +1,5 @@
 module.exports = {
-   age: function(timeStamp) {
+   age: timeStamp => {
       const today = new Date();
       const birthDate = new Date(timeStamp);
 
@@ -11,5 +11,27 @@ module.exports = {
       }
 
       return age;
+   },
+
+   graduation: graduation => {
+
+      const graduationLevels = {
+         Doctor(){
+            return "Doutorado";
+         },
+         Master(){
+            return "Mestrado";
+         },
+         Collage(){
+            return "Ensino Superior";
+         },
+         HighSchool(){
+            return "Ensino médio completo";
+         }
+      }
+      
+      const teacherLevel = graduationLevels[graduation];
+
+      return teacherLevel()
    }
 }

@@ -6,7 +6,7 @@
     <section class="avatar" style="background: url({{ teacher.avatar_url }}}) no-repeat center center; background-size: cover"></section>
 
     <div class="details">
-      <h3>Detalhes</h3>
+      <h1>Detalhes do Professor</h1>
 
       <div class="item">
         <div>Nome Completo</div>
@@ -21,15 +21,7 @@
       <div class="item">
         <div>Grau de Escolaridade</div>
         <div>
-          {% if teacher.educational_level == "complete-high-school" %}
-            Ensino médio completo
-          {% elif teacher.educational_level == "complete-college" %}
-            Ensino superior completo
-          {% elif teacher.educational_level == "Master" %}
-            Mestrado
-          {% else %}
-            Doutorado
-          {% endif %}
+          {{ teacher.educational_level }}
         </div>
       </div>
 
