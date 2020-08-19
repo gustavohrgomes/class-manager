@@ -1,3 +1,14 @@
 {
-  "teachers": []
+  "teachers": [
+    {
+      "Id": 1,
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6643122?s=460&v=4",
+      "name": "Mayk Brito",
+      "birth": 468115200000,
+      "educational_level": "Master",
+      "class_type": "Presential",
+      "fields": "Desenvolvimento Web",
+      "created_at": 1596423954476
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 const fs = require('fs');
-const data = require('./data.json');
-const { age } = require('./utils');
+const data = require('../data.json');
+const { age, graduation } = require('../utils');
 
 exports.show = (req, res) => {
    const { id } = req.params;
@@ -15,8 +15,11 @@ exports.show = (req, res) => {
       ...foundTeacher,
       age: age(foundTeacher.birth),
       fields: foundTeacher.fields.split(','),
+      educational_level: graduation("Doctor"),
       created_at: "",
    }
+
+   console.log(teacher);
 
    return res.render('teachers/show', { teacher });
 }
