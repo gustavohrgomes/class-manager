@@ -1,0 +1,79 @@
+<fieldset class="item">
+  <label>Avatar URL</label> 
+  <input
+    type="url" 
+    name="avatar_url"
+    placeholder="https://"
+    value="{{ teacher.avatar_url }}"
+  >
+</fieldset>
+
+<fieldset class="item">
+  <label>Nome completo</label>
+  <input
+    type="text" 
+    name="name"
+    placeholder="Digite seu nome completo"
+    value="{{ teacher.name }}"
+  >
+</fieldset>
+
+<fieldset class="item">
+  <label>Data de Nascimento</label>
+  <input
+    type="date" 
+    name="birth"
+    value="{{ teacher.birth }}"
+  >
+</fieldset>
+
+<fieldset class="item">
+  <label>Grau de escolaridade</label>
+  
+  <select name="educational_level">
+    <option value="" desabled hidden>Selecione uma opção</option>
+    <option value="HighSchool">Ensino médio completo</option>
+    <option value="College">Ensino Superior</option>
+    <option value="Master">Mestrado</option>
+    <option value="Doctor">Doutorado</option>
+  </select>
+  
+</fieldset>
+
+<fieldset class="item">
+  <label>Tipo de aula</label>
+  <div class="radio-options">
+    <span>
+      <input 
+        type="radio" 
+        name="class_type" 
+        value="Presential" 
+        {% if teacher.class_type == "Presential" %}
+          checked
+        {% endif %}
+      > 
+        Presencial
+    </span>
+    <span>
+      <input 
+        type="radio" 
+        name="class_type" 
+        value="Online"
+        {% if teacher.class_type == "Online" %}
+          checked
+        {% endif %}
+      > 
+        À distância
+      </span>
+  </div>
+</fieldset>
+
+<fieldset class="item">
+  <label>Áreas de atuação</label>
+  <input 
+    type="text"
+    name="fields"
+    placeholder="Separe as áreas de atuação com vírgula"
+    value="{{ teacher.fields }}"
+  >
+</fieldset>
