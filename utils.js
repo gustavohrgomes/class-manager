@@ -13,6 +13,16 @@ module.exports = {
       return age;
    },
 
+   date: timeStamp => {
+      const date = new Date(timeStamp);
+
+      const year = date.getUTCFullYear();
+      const month = `0${date.getUTCMonth() + 1}`.slice(-2);
+      const day = `0${date.getUTCDate()}`.slice(-2);
+
+      return `${year}-${month}-${day}`
+   },
+
    graduation: graduation => {
 
       const graduationLevels = {
@@ -22,7 +32,7 @@ module.exports = {
          Master(){
             return "Mestrado";
          },
-         Collage(){
+         College(){
             return "Ensino Superior";
          },
          HighSchool(){
@@ -32,6 +42,9 @@ module.exports = {
       
       const teacherLevel = graduationLevels[graduation];
 
-      return teacherLevel()
+      // console.log(teacherLevel);
+      // console.log(graduation);
+
+      return teacherLevel();
    }
 }
