@@ -6,7 +6,7 @@ exports.show = (req, res) => {
   const { id } = req.params;
 
   const foundTeacher = data.teachers.find(teacher => {
-    return teacher.Id == id;
+    return teacher.id == id;
   })
 
   if (!foundTeacher) return res.send('Teacher not found!')
@@ -36,11 +36,11 @@ exports.post = (req, res) => {
   let { avatar_url, name, birth, educational_level, class_type, fields } = req.body;
 
   birth = Date.parse(birth);
-  const Id = Number(data.teachers.length + 1);
+  const id = Number(data.teachers.length + 1);
   const created_at = Date.now();
 
   data.teachers.push({
-    Id,
+    id,
     avatar_url,
     name,
     birth,
@@ -61,7 +61,7 @@ exports.edit = (req, res) => {
   const { id } = req.params;
 
   const foundTeacher = data.teachers.find(teacher => {
-    return teacher.Id == id;
+    return teacher.id == id;
   });
 
   if (!foundTeacher) return res.send("Teacher not found, sorry :(");
@@ -75,24 +75,27 @@ exports.edit = (req, res) => {
   return res.render('teachers/edit', { teacher });
 }
 
-exports.put = (req, res) => {
+exports.update = (req, res) => {
   const { id } = req.body;
 
   let index = 0;
 
   const foundTeacher = data.teachers.find((teacher, foundIndex) => {
-    if (id == teacher.Id) {
+    if (id == teacher.id) {
       index = foundIndex;
       return true;
     }
   });
+
+  console.log(foundTeacher)
 
   if (!foundTeacher) return res.send("Teacher not found, sorry :(");
 
   const teacher = {
     ...foundTeacher,
     ...req.body,
-    birth: Data.Parse(req.body.birth),
+    id: Number(req.body.id),
+    birth: Date.parse(req.body.birth)
   }
 
   data.teachers[index] = teacher;
