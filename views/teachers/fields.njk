@@ -30,7 +30,7 @@
 <fieldset class="item">
   <label>Grau de escolaridade</label>
   
-  <select name="educational_level">
+  <select name="educational_level" required>
     <option value="" desabled hidden>Selecione uma opção</option>
     <option value="HighSchool">Ensino médio completo</option>
     <option value="College">Ensino Superior</option>
@@ -77,3 +77,5 @@
     value="{{ teacher.fields }}"
   >
 </fieldset>
+
+<button type="submit">Salvar</button>

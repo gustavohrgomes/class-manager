@@ -26,20 +26,20 @@ module.exports = {
    graduation: graduation => {
 
       const graduationLevels = {
-         Doctor(){
+         Doctor() {
             return "Doutorado";
          },
-         Master(){
+         Master() {
             return "Mestrado";
          },
-         College(){
+         College() {
             return "Ensino Superior";
          },
-         HighSchool(){
+         HighSchool() {
             return "Ensino médio completo";
          }
       }
-      
+
       const teacherLevel = graduationLevels[graduation];
 
       // console.log(teacherLevel);
