@@ -5,6 +5,7 @@
   --primary-color: #3078d6;
   --primary-color-light: #7caff3;
   --secondary-color: #f7df1e;
+  --delete-color: #f10044;
 }
 
 * {
@@ -192,7 +193,7 @@ input[type="radio"] {
 
 
 button[type="submit"],
-a.button {
+a.buttons {
   width: 100%;
   font-size: 16px;
   color: #fff;
@@ -204,8 +205,14 @@ a.button {
   cursor: pointer;
 }
 
-a.button {
+a.buttons {
   display: block;
   text-align: center;
   text-decoration: none;
+}
+
+.form-delete button[type="submit"] {
+  color: #fff;
+  background-color: var(--delete-color);
+  margin-top: 12px;
 }

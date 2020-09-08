@@ -2,17 +2,25 @@
 
 {% block content %}
 
-   <form class="card" method="POST" action="/teachers?_method=PUT">
-      <section class="avatar"></section>
+  <div class="card">
+    <section class="avatar"></section>
 
-      <section class="details">
-         <h1>Editar Professor</h1>
+    <section class="details">
+      <form action="/teachers?_method=PUT" method="POST">
+        
+        <h1>Editar Professor</h1>
 
-         {% include "teachers/fields.njk" %}
+        {% include "teachers/fields.njk" %}
 
-         <input type="hidden" name="id" value="{{ teacher.id }}">
-         
-      </section>
-   </form>
+        <input type="hidden" name="id" value="{{ teacher.id }}">
+      </form>
+
+      <form class="form-delete" action="/teachers?_method=DELETE" method="post">
+        <input type="hidden" name="id" value="{{ teacher.id }}">
+        <button type="submit">Deletar</button>
+      </form>
+
+    </section>
+  </div>
 
 {% endblock content %}
