@@ -194,7 +194,7 @@ input[type="radio"] {
 
 button[type="submit"],
 a.buttons {
-  width: 100%;
+  width: 180px;
   font-size: 16px;
   color: #fff;
   background-color: var(--primary-color);
@@ -206,13 +206,18 @@ a.buttons {
 }
 
 a.buttons {
+  width: 100%;
   display: block;
   text-align: center;
   text-decoration: none;
 }
 
-.form-delete button[type="submit"] {
+button[type="submit"].button__delete {
   color: #fff;
   background-color: var(--delete-color);
-  margin-top: 12px;
+}
+
+.button__flex-container {
+  display: flex;
+  justify-content: space-evenly;
 }
