@@ -157,7 +157,7 @@ fieldset {
   cursor: pointer;
 }
 
-/* === CREATE FORM === */
+/* === FORMS === */
 .item input,
 .item select {
   width: 100%;
@@ -194,7 +194,7 @@ input[type="radio"] {
 
 button[type="submit"],
 a.buttons {
-  width: 180px;
+  width: 100%;
   font-size: 16px;
   color: #fff;
   background-color: var(--primary-color);
@@ -206,10 +206,14 @@ a.buttons {
 }
 
 a.buttons {
-  width: 100%;
   display: block;
   text-align: center;
   text-decoration: none;
+}
+
+.buttons:hover,
+button:hover {
+  opacity: 0.7;
 }
 
 button[type="submit"].button__delete {
@@ -218,6 +222,7 @@ button[type="submit"].button__delete {
 }
 
 .button__flex-container {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
