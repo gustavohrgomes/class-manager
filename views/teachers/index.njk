@@ -18,7 +18,11 @@
               <span style="background-image: url({{ teacher.avatar_url }})"></span>
               {{ teacher.name }}
             </td>
-            <td>{{ teacher.fields }}</td>
+            <td>
+              {% for field in teacher.fields %}
+                <span>{{ field }}</span>
+              {% endfor %}
+            </td>
             <td>
               <a href="/teachers/{{ teacher.id }}">Ver Professor</a>
             </td>

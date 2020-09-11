@@ -268,10 +268,24 @@ tbody tr td:first-child span {
   border: 2px solid white;
 }
 
-tbody tr td:last-child a {
-  color: #555;
-  font-size: 14px;
+.table-container tbody tr td span {
+  padding: 8px 16px;
   background-color: var(--secondary-color);
+  border-radius: 16px;
+  color: #777;
+  margin-right: 4px;
+  margin-top: 8px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tbody tr td:last-child a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: var(--primary-color);
   padding: 8px 16px;
   border-radius: 8px;
 }
