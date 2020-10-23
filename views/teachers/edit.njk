@@ -12,19 +12,10 @@
 
         {% include "teachers/fields.njk" %}
 
-        <div class="button__flex-container">
-          <button type="submit">Salvar</button>
-
-          <button class="button__delete" form="delete" type="submit">Deletar</button>
-        </div>
-        
-        <input type="hidden" name="id" value="{{ teacher.id }}">
+        <button type="submit">Salvar</button>
+              
+        <input type="hidden" name="id" value="{{ teacher.Id }}">
       </form>
-
-      <form id="delete" class="form-delete" action="/teachers?_method=DELETE" method="post">
-        <input type="hidden" name="id" value="{{ teacher.id }}">
-      </form>
-
     </section>
   </div>
 

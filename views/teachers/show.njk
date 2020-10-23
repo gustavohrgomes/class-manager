@@ -2,48 +2,56 @@
 
 {% block content %}
 
-  <section class="card">
-    <div class="avatar" style="background: url({{ teacher.avatar_url }}}) no-repeat center center; background-size: cover"></div>
+<section class="card">
+  <div class="avatar" style="background: url({{ teacher.avatar_url }}}) no-repeat center center; background-size: cover"></div>
 
-    <section class="details">
-      <h1>Detalhes do Professor</h1>
+  <section class="details">
+    <h1>Detalhes do Professor</h1>
 
-      <div class="item">
-        <div>Nome Completo</div>
-        <div>{{ teacher.name }}</div>
+    <div class="item">
+      <div>Nome Completo</div>
+      <div>{{ teacher.name }}</div>
+    </div>
+
+    <div class="item">
+      <div>Idade</div>
+      <div>{{ teacher.age }}</div>
+    </div>
+
+    <div class="item">
+      <div>Grau de Escolaridade</div>
+      <div>
+        {{ teacher.educational_level }}
       </div>
+    </div>
 
-      <div class="item">
-        <div>Idade</div>
-        <div>{{ teacher.age }}</div>
-      </div>
+    <div class="item">
+      <div>Tipo de aula</div>
+      <div>{{ "Presencial" if teacher.class_type == "Presential" else "À distância" }}</div>
+    </div>
 
-      <div class="item">
-        <div>Grau de Escolaridade</div>
-        <div>
-          {{ teacher.educational_level }}
-        </div>
-      </div>
+    <div class="item">
+      <div>Áreas de atuação</div>
+      {% for field in teacher.fields %}
+        <span>{{ field }}</span>
+      {% endfor %}
+    </div>
 
-      <div class="item">
-        <div>Tipo de aula</div>
-        <div>{{ "Presencial" if teacher.class_type == "Presential" else "À distância" }}</div>
-      </div>
+    <div class="item">
+      <div>Desde</div>
+      <div>{{ teacher.created_at }}</div>
+    </div>
 
-      <div class="item">
-        <div>Áreas de atuação</div>
-        {% for field in teacher.fields %}
-          <span>{{ field }}</span>
-        {% endfor %}
-      </div>
+    <div class="form-buttons__container">
+      <a class="buttons" href="/teachers/{{ teacher.Id }}/edit">Editar<a>
+      
+      <form id="delete" class="form-delete" action="/teachers?_method=DELETE" method="post">
+        <input type="hidden" name="id" value="{{ teacher.Id }}">
 
-      <div class="item">
-        <div>Desde</div>
-        <div>{{ teacher.created_at }}</div>
-      </div>
-
-      <a class="buttons" href="/teachers/{{ teacher.id }}/edit">Editar<a>
-    </section>
+        <button class="button__delete" form="delete" type="submit">Deletar</button>
+      </form>
+    </div>
   </section>
+</section>
 
 {% endblock content %}

@@ -221,7 +221,7 @@ button[type="submit"].button__delete {
   background-color: var(--delete-color);
 }
 
-.button__flex-container {
+.form-buttons__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
@@ -243,7 +243,7 @@ button[type="submit"].button__delete {
 }
 
 td, th {
-  padding: 16px;
+  padding: 12px;
   border-bottom: 1px solid #d9d9d9;
 }
 
@@ -257,7 +257,7 @@ tbody tr td:first-child {
   align-items: center;
 }
 
-tbody tr td:first-child span {
+.table-container tbody tr td:first-child span {
   width: 40px;
   height: 40px;
   background-position: center;
@@ -286,7 +286,7 @@ tbody tr td:last-child a {
   font-size: 14px;
   font-weight: bold;
   background-color: var(--primary-color);
-  padding: 8px 16px;
+  padding: 8px 12px;
   border-radius: 8px;
 }
 

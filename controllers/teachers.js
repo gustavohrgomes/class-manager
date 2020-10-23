@@ -17,7 +17,7 @@ exports.show = (req, res) => {
   const { id } = req.params;
 
   const foundTeacher = data.teachers.find(teacher => {
-    return teacher.id == id;
+    return teacher.Id == id;
   })
 
   if (!foundTeacher) return res.send('Teacher not found!')
@@ -29,8 +29,6 @@ exports.show = (req, res) => {
     educational_level: graduation(foundTeacher.educational_level),
     created_at: new Intl.DateTimeFormat("pt-BR").format(foundTeacher.created_at)
   }
-
-  console.log(teacher);
 
   return res.render('teachers/show', { teacher });
 }
@@ -47,11 +45,11 @@ exports.post = (req, res) => {
   let { avatar_url, name, birth, educational_level, class_type, fields } = req.body;
 
   birth = Date.parse(birth);
-  const id = Number(data.teachers.length + 1);
+  const Id = Number(data.teachers.length + 1);
   const created_at = Date.now();
 
   data.teachers.push({
-    id,
+    Id,
     avatar_url,
     name,
     birth,
@@ -72,7 +70,7 @@ exports.edit = (req, res) => {
   const { id } = req.params;
 
   const foundTeacher = data.teachers.find(teacher => {
-    return teacher.id == id;
+    return teacher.Id == id;
   });
 
   if (!foundTeacher) return res.send("Teacher not found, sorry :(");
@@ -92,13 +90,11 @@ exports.update = (req, res) => {
   let index = 0;
 
   const foundTeacher = data.teachers.find((teacher, foundIndex) => {
-    if (id == teacher.id) {
+    if (id == teacher.Id) {
       index = foundIndex;
       return true;
     }
   });
-
-  console.log(foundTeacher)
 
   if (!foundTeacher) return res.send("Teacher not found, sorry :(");
 
@@ -122,7 +118,7 @@ exports.delete = (req, res) => {
   const { id } = req.body;
 
   const filteredTeachers = data.teachers.filter(teacher => {
-    return teacher.id != id;
+    return teacher.Id != id;
   });
 
   data.teachers = filteredTeachers;
