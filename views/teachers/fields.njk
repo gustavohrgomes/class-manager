@@ -30,12 +30,43 @@
 <fieldset class="item">
   <label>Grau de escolaridade</label>
   
-  <select name="educational_level" required>
+  <select name="graduationLevel" required>
     <option value="" desabled hidden>Selecione uma opção</option>
-    <option value="HighSchool">Ensino médio completo</option>
-    <option value="College">Ensino Superior</option>
-    <option value="Master">Mestrado</option>
-    <option value="Doctor">Doutorado</option>
+    <option 
+      value="HighSchool"
+      {% if teacher.graduationLevel == "HighSchool" %}
+        selected
+      {% endif %}
+    >
+      Ensino médio completo
+    </option>
+    <option 
+      value="College"
+      {% if teacher.graduationLevel == "College" %}
+        selected
+      {% endif %}
+    >
+      Ensino Superior
+    </option>
+
+    <option 
+      value="Master"
+      {% if teacher.graduationLevel == "Master" %}
+        selected
+      {% endif %}
+    >
+      Mestrado
+    </option>
+
+    <option 
+      value="Doctor"
+      {% if teacher.graduationLevel == "Doctor" %}
+        selected
+      {% endif %}
+    >
+      Doutorado
+    </option>
+    
   </select>
   
 </fieldset>

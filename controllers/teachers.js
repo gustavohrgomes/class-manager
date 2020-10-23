@@ -26,7 +26,7 @@ exports.show = (req, res) => {
     ...foundTeacher,
     age: age(foundTeacher.birth),
     fields: foundTeacher.fields.split(','),
-    educational_level: graduation(foundTeacher.educational_level),
+    graduationLevel: graduation(foundTeacher.graduationLevel),
     created_at: new Intl.DateTimeFormat("pt-BR").format(foundTeacher.created_at)
   }
 
@@ -42,7 +42,7 @@ exports.post = (req, res) => {
     }
   }
 
-  let { avatar_url, name, birth, educational_level, class_type, fields } = req.body;
+  let { avatar_url, name, birth, graduationLevel, class_type, fields } = req.body;
 
   birth = Date.parse(birth);
   const Id = Number(data.teachers.length + 1);
@@ -53,7 +53,7 @@ exports.post = (req, res) => {
     avatar_url,
     name,
     birth,
-    educational_level,
+    graduationLevel,
     class_type,
     fields,
     created_at
@@ -77,8 +77,7 @@ exports.edit = (req, res) => {
 
   const teacher = {
     ...foundTeacher,
-    birth: date(foundTeacher.birth),
-    educational_level: graduation(foundTeacher.educational_level)
+    birth: date(foundTeacher.birth)
   }
 
   return res.render('teachers/edit', { teacher });
