@@ -1,0 +1,31 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+  <div class="card">
+    <section class="avatar"></section>
+
+    <section class="details">
+      <form action="/students?_method=PUT" method="POST">
+        
+        <h1>Editar Professor</h1>
+
+        {% include "students/fields.njk" %}
+
+        <div class="button__flex-container">
+          <button type="submit">Salvar</button>
+
+          <button class="button__delete" form="delete" type="submit">Deletar</button>
+        </div>
+        
+        <input type="hidden" name="id" value="{{ student.id }}">
+      </form>
+
+      <form id="delete" class="form-delete" action="/students?_method=DELETE" method="post">
+        <input type="hidden" name="id" value="{{ student.id }}">
+      </form>
+
+    </section>
+  </div>
+
+{% endblock content %}
