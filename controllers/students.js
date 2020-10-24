@@ -35,6 +35,10 @@ exports.show = (req, res) => {
   return res.render('students/show', { student });
 }
 
+exports.create = (req, res) => {
+  return res.render('students/create');
+}
+
 exports.post = (req, res) => {
   const keys = Object.keys(req.body);
 

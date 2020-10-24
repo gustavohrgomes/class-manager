@@ -33,6 +33,10 @@ exports.show = (req, res) => {
   return res.render('teachers/show', { teacher });
 }
 
+exports.create = (req, res) => {
+  return res.render('teachers/create');
+}
+
 exports.post = (req, res) => {
   const keys = Object.keys(req.body);
 
@@ -62,7 +66,7 @@ exports.post = (req, res) => {
   fs.writeFile("data.json", JSON.stringify(data, null, 2), err => {
     if (err) return res.send("An error has ocurred during the write file operation");
 
-    return res.redirect('teachers');
+    return res.redirect('students');
   })
 }
 
