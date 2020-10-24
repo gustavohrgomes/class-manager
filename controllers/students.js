@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('../data.json');
-const { age, graduation, date } = require('../utils');
+const { date, grade } = require('../utils');
 
 exports.index = (req, res) => {
   const students = data.students.map(student => {
@@ -23,7 +23,8 @@ exports.show = (req, res) => {
 
   const student = {
     ...foundStudent,
-    age: age(foundStudent.birth),
+    scholar_year: grade(foundStudent.scholar_year),
+    birth: date(foundStudent.birth).birthDay,
   }
 
   console.log(student);
@@ -77,7 +78,7 @@ exports.edit = (req, res) => {
 
   const student = {
     ...foundStudent,
-    birth: date(foundStudent.birth),
+    birth: date(foundStudent.birth).iso
   }
 
   return res.render('students/edit', { student });
