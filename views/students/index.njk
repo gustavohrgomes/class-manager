@@ -3,10 +3,14 @@
 {% block content %}
 
   <div class="card table-container">
+    <a href="/students/create">Novo Aluno</a>
+
     <table width="100%">
       <thead>
         <tr>
           <th>Aluno</th>
+          <th>Email</th>
+          <th>Ano escolar</th>
           <th>Ação</th>
         </tr>
       </thead>
@@ -17,8 +21,10 @@
               <span style="background-image: url({{ student.avatar_url }})"></span>
               {{ student.name }}
             </td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.scholar_year }}</td>
             <td>
-              <a href="/students/{{ student.id }}">Ver aluno</a>
+              <a href="/students/{{ student.id }}">Ver</a>
             </td>
           </tr>
         {% endfor %}

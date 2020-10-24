@@ -284,7 +284,8 @@ tbody tr td:first-child {
   text-transform: uppercase;
 }
 
-tbody tr td:last-child a {
+tbody tr td:last-child a,
+.table-container > a {
   color: #fff;
   font-size: 14px;
   font-weight: bold;
@@ -293,6 +294,12 @@ tbody tr td:last-child a {
   border-radius: 8px;
 }
 
-tbody tr td:last-child a:hover {
+.table-container > a {
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+tbody tr td:last-child a:hover,
+.table-container > a:hover {
   opacity: .8;
 }
