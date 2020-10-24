@@ -5,8 +5,7 @@ const { age, graduation, date } = require('../utils');
 exports.index = (req, res) => {
   const students = data.students.map(student => {
     return { 
-      ...student,
-      fields: student.fields.split(',')
+      ...student
     }
   });
 
@@ -25,9 +24,6 @@ exports.show = (req, res) => {
   const student = {
     ...foundStudent,
     age: age(foundStudent.birth),
-    fields: foundStudent.fields.split(','),
-    educational_level: graduation(foundStudent.educational_level),
-    created_at: new Intl.DateTimeFormat("pt-BR").format(foundStudent.created_at)
   }
 
   console.log(student);
@@ -48,21 +44,19 @@ exports.post = (req, res) => {
     }
   }
 
-  let { avatar_url, name, birth, educational_level, class_type, fields } = req.body;
+  birth = Date.parse(req.body.birth);
 
-  birth = Date.parse(birth);
-  const id = Number(data.students.length + 1);
-  const created_at = Date.now();
+  let id = 1;
+  const lastStudent = data.students[data.students.length - 1];
+
+  if (lastStudent){
+    id = lastStudent.id + 1
+  }
 
   data.students.push({
     id,
-    avatar_url,
-    name,
-    birth,
-    educational_level,
-    class_type,
-    fields,
-    created_at
+    ...req.body,
+    birth
   });
 
   fs.writeFile("data.json", JSON.stringify(data, null, 2), err => {
@@ -84,7 +78,6 @@ exports.edit = (req, res) => {
   const student = {
     ...foundStudent,
     birth: date(foundStudent.birth),
-    educational_level: graduation(foundStudent.educational_level)
   }
 
   return res.render('students/edit', { student });
