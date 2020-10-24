@@ -6,7 +6,7 @@
     <div class="avatar" style="background: url({{ student.avatar_url }}}) no-repeat center center; background-size: cover"></div>
 
     <section class="details">
-      <h1>Detalhes do Professor</h1>
+      <h1>Detalhes do aluno</h1>
 
       <div class="item">
         <div>Nome Completo</div>
@@ -14,33 +14,25 @@
       </div>
 
       <div class="item">
-        <div>Idade</div>
+        <div>Email</div>
+        <div>{{ student.email }}</div>
+      </div>
+
+      <div class="item">
+        <div>Aniversário</div>
         <div>{{ student.age }}</div>
       </div>
 
       <div class="item">
-        <div>Grau de Escolaridade</div>
-        <div>
-          {{ student.educational_level }}
-        </div>
+        <div>Ano escolar</div>
+        <div>{{ student.scholar_year }}</div>
       </div>
 
       <div class="item">
-        <div>Tipo de aula</div>
-        <div>{{ "Presencial" if student.class_type == "Presential" else "À distância" }}</div>
+        <div>Carga horária</div>
+        <div>{{ student.weekly_hours }}</div>
       </div>
 
-      <div class="item">
-        <div>Áreas de atuação</div>
-        {% for field in student.fields %}
-          <span>{{ field }}</span>
-        {% endfor %}
-      </div>
-
-      <div class="item">
-        <div>Desde</div>
-        <div>{{ student.created_at }}</div>
-      </div>
 
       <a class="buttons" href="/students/{{ student.id }}/edit">Editar<a>
     </section>

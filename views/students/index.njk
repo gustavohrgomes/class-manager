@@ -6,8 +6,7 @@
     <table width="100%">
       <thead>
         <tr>
-          <th>Professor</th>
-          <th>Acompanhamento</th>
+          <th>Aluno</th>
           <th>Ação</th>
         </tr>
       </thead>
@@ -19,12 +18,7 @@
               {{ student.name }}
             </td>
             <td>
-              {% for field in student.fields %}
-                <span>{{ field }}</span>
-              {% endfor %}
-            </td>
-            <td>
-              <a href="/students/{{ student.Id }}">Ver Professor</a>
+              <a href="/students/{{ student.id }}">Ver aluno</a>
             </td>
           </tr>
         {% endfor %}
