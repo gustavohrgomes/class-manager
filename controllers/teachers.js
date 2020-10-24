@@ -17,7 +17,7 @@ exports.show = (req, res) => {
   const { id } = req.params;
 
   const foundTeacher = data.teachers.find(teacher => {
-    return teacher.Id == id;
+    return teacher.id == id;
   })
 
   if (!foundTeacher) return res.send('Teacher not found!')
@@ -49,11 +49,11 @@ exports.post = (req, res) => {
   let { avatar_url, name, birth, graduationLevel, class_type, fields } = req.body;
 
   birth = Date.parse(birth);
-  const Id = Number(data.teachers.length + 1);
+  const id = Number(data.teachers.length + 1);
   const created_at = Date.now();
 
   data.teachers.push({
-    Id,
+    id,
     avatar_url,
     name,
     birth,
@@ -66,7 +66,7 @@ exports.post = (req, res) => {
   fs.writeFile("data.json", JSON.stringify(data, null, 2), err => {
     if (err) return res.send("An error has ocurred during the write file operation");
 
-    return res.redirect('students');
+    return res.redirect('teachers');
   })
 }
 
@@ -74,7 +74,7 @@ exports.edit = (req, res) => {
   const { id } = req.params;
 
   const foundTeacher = data.teachers.find(teacher => {
-    return teacher.Id == id;
+    return teacher.id == id;
   });
 
   if (!foundTeacher) return res.send("Teacher not found, sorry :(");
@@ -93,7 +93,7 @@ exports.update = (req, res) => {
   let index = 0;
 
   const foundTeacher = data.teachers.find((teacher, foundIndex) => {
-    if (id == teacher.Id) {
+    if (id == teacher.id) {
       index = foundIndex;
       return true;
     }
@@ -121,7 +121,7 @@ exports.delete = (req, res) => {
   const { id } = req.body;
 
   const filteredTeachers = data.teachers.filter(teacher => {
-    return teacher.Id != id;
+    return teacher.id != id;
   });
 
   data.teachers = filteredTeachers;
