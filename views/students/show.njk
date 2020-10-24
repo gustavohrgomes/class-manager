@@ -33,9 +33,18 @@
         <div>{{ student.weekly_hours }}</div>
       </div>
 
+      <div class="form-buttons__container">
+        <a class="buttons" href="/students/{{ student.id }}/edit">Editar<a>
 
-      <a class="buttons" href="/students/{{ student.id }}/edit">Editar<a>
+        <form id="form-delete" action="/students?_method=DELETE" method="post">
+          <input type="hidden" name="id" value="{{ student.id }}">
+          <button class="button__delete" type="submit">Deletar</button>
+        </form>
+      </div>
+      
     </section>
   </section>
+
+  {% include "../confirm.njk" %}
 
 {% endblock content %}

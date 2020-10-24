@@ -27,8 +27,6 @@ exports.show = (req, res) => {
     birth: date(foundStudent.birth).birthDay,
   }
 
-  console.log(student);
-
   return res.render('students/show', { student });
 }
 
