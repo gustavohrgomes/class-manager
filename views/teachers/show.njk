@@ -43,10 +43,10 @@
     </div>
 
     <div class="form-buttons__container">
-      <a class="buttons" href="/teachers/{{ teacher.Id }}/edit">Editar<a>
+      <a class="buttons" href="/teachers/{{ teacher.id}}/edit">Editar<a>
       
       <form id="delete" class="form-delete" action="/teachers?_method=DELETE" method="post">
-        <input type="hidden" name="id" value="{{ teacher.Id }}">
+        <input type="hidden" name="id" value="{{ teacher.id}}">
 
         <button class="button__delete" form="delete" type="submit">Deletar</button>
       </form>
