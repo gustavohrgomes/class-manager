@@ -3,25 +3,23 @@
 {% block content %}
 
   <div class="card">
-    <section class="avatar"></section>
+    <section 
+      class="avatar"
+      style="background: url({{ student.avatar_url }}) no-repeat center center; background-size: cover"
+    >
+    </section>
 
     <section class="details">
       <form action="/students?_method=PUT" method="POST">
         
-        <h1>Editar Professor</h1>
+        <h1>Editar Aluno</h1>
 
         {% include "students/fields.njk" %}
 
         <div class="button__flex-container">
           <button type="submit">Salvar</button>
-
-          <button class="button__delete" form="delete" type="submit">Deletar</button>
         </div>
         
-        <input type="hidden" name="id" value="{{ student.id }}">
-      </form>
-
-      <form id="delete" class="form-delete" action="/students?_method=DELETE" method="post">
         <input type="hidden" name="id" value="{{ student.id }}">
       </form>
 
