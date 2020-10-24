@@ -40,50 +40,74 @@
 <fieldset class="item">
   <label>Ano escolar</label>
   <select name="scholar_year">
-    <option selected disabled hidden >Selecione um ano Escolar</option>
+    <option selected value="" disabled hidden >Selecione um ano Escolar</option>
     <option 
       value="FifthMidGrade"
+      {% if student.scholar_year == "FifthMidGrade" %}
+        selected
+      {% endif %}
     >
       5° ano do fundamental
     </option>
     
     <option 
       value="SixthMidGrade"
+      {% if student.scholar_year == "SixthMidGrade" %}
+        selected
+      {% endif %}
     >
       6° ano do fundamental
     </option>
     
     <option 
       value="SeventhMidGrade"
+      {% if student.scholar_year == "SeventhMidGrade" %}
+        selected
+      {% endif %}
     >
       7° ano do fundamental
     </option>
     
     <option 
       value="EighthMidGrade"
+      {% if student.scholar_year == "EighthMidGrade" %}
+        selected
+      {% endif %}
     >
       8° ano do fundamental
     </option>
     
     <option 
       value="NinethMidGrade"
+      {% if student.scholar_year == "NinethMidGrade" %}
+        selected
+      {% endif %}
     >
       9° ano do fundamental
     </option>
     
     <option 
       value="FirstHighGrade"
+      {% if student.scholar_year == "FirstHighGrade" %}
+        selected
+      {% endif %}
     >
       1° ano do colegial
     </option>
     
     <option 
       value="SecondHighGrade"
+      {% if student.scholar_year == "SecondHighGrade" %}
+        selected
+      {% endif %}
     >
       2° ano do colegial
     </option>
     <option 
       value="ThirdHighGrade"
+      {% if student.scholar_year == "ThirdHighGrade" %}
+        selected
+      {% endif %}
     >
       3° ano do colegial
     </option>
