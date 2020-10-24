@@ -171,16 +171,8 @@ fieldset {
   background-color: white;
 }
 
-.radio-options {
-  padding-left: 8px;
-}
-
 input:focus {
   border-color: var(--primary-color);
-}
-
-option:first-child {
-  color: #777;
 }
 
 input[type="radio"] {
@@ -191,6 +183,17 @@ input[type="radio"] {
   cursor: pointer;
 }
 
+input::placeholder {
+  color: #ccc
+}
+
+.radio-options {
+  padding-left: 8px;
+}
+
+option:first-child {
+  color: #777;
+}
 
 button[type="submit"],
 a.buttons {
@@ -240,6 +243,10 @@ button[type="submit"].button__delete {
 .table-container thead tr th,
 .table-container tbody tr td {
   text-align: center;
+}
+
+.table-container thead th:first-child {
+  text-align: left;
 }
 
 td, th {

@@ -19,6 +19,16 @@
 </fieldset>
 
 <fieldset class="item">
+  <label>Email</label>
+  <input 
+    type="email"
+    name="email"
+    value="{{ student.email }}"
+    placeholder="email@email.com"
+  >
+</fieldset>
+
+<fieldset class="item">
   <label>Data de Nascimento</label>
   <input
     type="date" 
@@ -28,52 +38,63 @@
 </fieldset>
 
 <fieldset class="item">
-  <label>Grau de escolaridade</label>
-  
-  <select name="educational_level" required>
-    <option value="" desabled hidden>Selecione uma opção</option>
-    <option value="HighSchool">Ensino médio completo</option>
-    <option value="College">Ensino Superior</option>
-    <option value="Master">Mestrado</option>
-    <option value="Doctor">Doutorado</option>
+  <label>Ano escolar</label>
+  <select name="schollar-year">
+    <option 
+      value="fifth-mid-grade"
+    >
+      5° ano do fundamental
+    </option>
+    
+    <option 
+      value="sixth-mid-grade"
+    >
+      6° ano do fundamental
+    </option>
+    
+    <option 
+      value="seventh-mid-grade"
+    >
+      7° ano do fundamental
+    </option>
+    
+    <option 
+      value="eighth-mid-grade"
+    >
+      8° ano do fundamental
+    </option>
+    
+    <option 
+      value="nineth-mid-grade"
+    >
+      9° ano do fundamental
+    </option>
+    
+    <option 
+      value="first-high-grade"
+    >
+      1° ano do colegial
+    </option>
+    
+    <option 
+      value="second-high-grade"
+    >
+      2° ano do colegial
+    </option>
+    <option 
+      value="third-high-grade"
+    >
+      3° ano do colegial
+    </option>
   </select>
-  
 </fieldset>
 
 <fieldset class="item">
-  <label>Tipo de aula</label>
-  <div class="radio-options">
-    <span>
-      <input 
-        type="radio" 
-        name="class_type" 
-        value="Presential" 
-        {% if student.class_type == "Presential" %}
-          checked
-        {% endif %}
-      > 
-        Presencial
-    </span>
-    <span>
-      <input 
-        type="radio" 
-        name="class_type" 
-        value="Online"
-        {% if student.class_type == "Online" %}
-          checked
-        {% endif %}
-      > 
-        À distância
-      </span>
-  </div>
-</fieldset>
-
-<fieldset class="item">
-  <label>Áreas de atuação</label>
-  <input 
-    type="text"
-    name="fields"
-    placeholder="Separe as áreas de atuação com vírgula"
-    value="{{ student.fields }}"
+  <label>Carga horária semanal</label>
+  <input
+    type="number" 
+    name="weekly-hours"
+    value="{{ student.birth }}"
+    placeholder="Digite a carga horária semanal"
   >
 </fieldset>
